@@ -1,5 +1,5 @@
 the shell script of yun   云的shell脚本集
-====== 
+=========
 		those script is used to do some work for android
 		这些脚本是用来做一些安卓方面的工作，因为他包含了：
 		its inclue:
@@ -26,6 +26,7 @@ HOW TO INSTALL IT 如何安装
 
 HOW TO USE IT 如何使用
 ------
+
 ### apktool
 > d  : decode
 
