@@ -83,4 +83,13 @@ HOW TO USE IT 如何使用
 		rmout=rm out/*2014* && rm out/*de*
 
 
+### Github
+> .git-completion.bash  自动补全脚本
+> put it on your home directory 将这个文件拷贝到主目录
+> add those code to ~/.bash_profile   将下面代码添加到~/.bash_profile
 
+		if [ -f ~/.git-completion.bash ]; then
+    			. ~/.git-completion.bash
+		fi
+
+>done 完成
