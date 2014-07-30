@@ -75,6 +75,12 @@ HOW TO USE IT 如何使用
 > 你必须把signall.sh放置在ROM的根目录，就是与system,META-INF相同的那个目录。然后双击它即可
 > and click it
 
+### shell
+>rmount  : IT IS NOT remount  but rm out
+> when you use b  build some apk many times,it will build many history apks in out folder.if your make sure don't need it ,them you can use it deleted.
+>当你使用b命令建立apk的时候，如果你使用多次会生成很多历史apk.当你确定不需要这些apk时，你可以使用这个命令删除out下的所有历史apk
+
+		rmout=rm out/*2014* && rm out/*de*
 
 
 
