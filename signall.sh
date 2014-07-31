@@ -11,38 +11,38 @@ device=$1
 DATE=$2 
 cd system/framework
 for i in *.apk;do
-	echo "正在签名 $i ...... "
-  java -jar ~/yun/signapk.jar ~/yun/testkey.x509.pem ~/yun/testkey.pk8 $i sign_$i
-  mv ./sign_$i ./$i
+   echo "正在签名 $i ...... "
+   java -jar ~/yun/signapk.jar ~/yun/testkey.x509.pem ~/yun/testkey.pk8 $i sign_$i
+   mv ./sign_$i ./$i
    echo "完成签名 $i ";
 done
 
 cd ../app
 for i in *.apk;do
-	echo "正在签名 $i ...... "
-  java -jar ~/yun/signapk.jar ~/yun/testkey.x509.pem ~/yun/testkey.pk8 $i sign_$i
-  mv ./sign_$i ./$i
+   echo "正在签名 $i ...... "
+   java -jar ~/yun/signapk.jar ~/yun/testkey.x509.pem ~/yun/testkey.pk8 $i sign_$i
+   mv ./sign_$i ./$i
    echo "完成签名 $i ";
 done
 cd ../
 if [ ! -d "/app-2" ]; then
-  #mkdir /myfolder
-  cd app-2
-  for i in *.apk;do
-	echo "正在签名 $i ...... "
-  java -jar ~/yun/signapk.jar ~/yun/testkey.x509.pem ~/yun/testkey.pk8 $i sign_$i
-  mv ./sign_$i ./$i
-   echo "完成签名 $i ";
-done
+   echo "cd app-2"
+   cd app-2
+   for i in *.apk;do
+        echo "正在签名 $i ...... "
+        java -jar ~/yun/signapk.jar ~/yun/testkey.x509.pem ~/yun/testkey.pk8 $i sign_$i
+        mv ./sign_$i ./$i
+        echo "完成签名 $i ";
+   done
 fi
 cd ..
 if [ ! -d "/priv-app" ]; then
-  cd priv-app
-  for i in *.apk;do
-	echo "正在签名 $i ...... "
-  java -jar ~/yun/signapk.jar ~/yun/testkey.x509.pem ~/yun/testkey.pk8 $i sign_$i
-  mv ./sign_$i ./$i
-   echo "完成签名 $i ";
-done
+   cd priv-app
+   for i in *.apk;do
+          echo "正在签名 $i ...... "
+          java -jar ~/yun/signapk.jar ~/yun/testkey.x509.pem ~/yun/testkey.pk8 $i sign_$i
+          mv ./sign_$i ./$i
+          echo "完成签名 $i ";
+          done
 fi
 cd ../../../
