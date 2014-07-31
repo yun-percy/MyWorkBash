@@ -9,8 +9,8 @@ export PATH
 filepath=`pwd`
 project=$1
 echo $filepath
-adb sideload YUN_SUN_Root.zip
+adb sideload ~/yun/YUN_SUN_Root.zip
 while [ $? = 1 ]; do
-	adb sideload YUN_SUN_Root.zip
+	adb sideload ~/yun/YUN_SUN_Root.zip
 	#statements
 done

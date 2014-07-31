@@ -61,7 +61,7 @@ HOW TO USE IT 如何使用
 
 		bo = adb reboot bootloader
 
-> root 		:root your devices
+> root 		:root your devices in everywhere
 
 		root = adb sideload YunSunRoot.zip
 
