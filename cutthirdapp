@@ -1,0 +1,52 @@
+#!/bin/bash
+#此脚本用来 精简YUSUN LA5-W 内置app应用
+#制作者：陈云
+#写于2014年3月 窝窝
+#写于2014年4月 深圳语信公司
+#写于2014年6月 深圳语信公司
+#写于2014年7月 深圳云雀公司
+PATH=/bin:/sbin:/usr/bin:usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin:~/yun
+export PATH
+rm_thirdapp(){
+	adb shell su -c "rm system/$path/$app"
+}
+path="priv-app"
+app="Yl_SystemLockMarketV2.704_4.4_20140729_xiaolajiao.apk"
+rm_thirdapp
+app="moffice_6.0_1033_oem00104_multidex_177732.apk"
+rm_thirdapp
+app="piflow_white_xiaolajiao_v1.1.0.54.2.0_20140725.apk"
+rm_thirdapp
+path="vendor/operator/app"
+app='116114_4.3.0_0708_yuxin.apk'
+rm_thirdapp
+app='2014021818443930_android_build0986_honglajiao_877304.apk'
+rm_thirdapp
+app='20140224203827061_weixin520android380_0x25020031.apk_CH00000_noupdate.apk'
+rm_thirdapp
+app='20140328170440293_qqlive_3.1.0.5825_have_shorcut_20140324_signed_77396_140328163130a.apk'
+rm_thirdapp
+app='20140513_iFlyIME_v4.1.1484_01010286.apk'
+rm_thirdapp
+app='20140711172327166_tencentmobilemanager4.1.1_android_build0986__honglajiao_20140711_877304.apk'
+rm_thirdapp
+app='20140717111946111_QQ4.7.0_honglajiao_20140717_release.apk'
+rm_thirdapp
+app='Android_V4.0.2_20140715_Yusun_La5-w.apk'
+rm_thirdapp
+app='BaiduMap_6.2.0_yuxinshidai_dtyz10261_20140714.apk'
+rm_thirdapp
+app='PowerWord.apk'
+rm_thirdapp
+app="Unicomclient_LA5-W.apk"
+rm_thirdapp
+app="iDDZ_yuxinshidai-iddz_1.1.0.apk"
+rm_thirdapp
+app="mmb_134208_V1.0.3.apk"
+rm_thirdapp
+app="womenhu_nz20140707.apk"
+rm_thirdapp
+app="xiaolajiao5158_yunmiweather_v1.2.0_0.apk"
+rm_thirdapp
+app="xiuxiu.apk"
+rm_thirdapp
