@@ -7,42 +7,41 @@
 PATH=/bin:/sbin:/usr/bin:usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
+filepath=`pwd`
 device=$1
 DATE=$2 
-cd system/framework
-for i in *.apk;do
-   echo "正在签名 $i ...... "
-   java -jar ~/yun/signapk.jar ~/yun/testkey.x509.pem ~/yun/testkey.pk8 $i sign_$i
-   mv ./sign_$i ./$i
-   echo "完成签名 $i ";
-done
+cd $filepath
 
-cd ../app
-for i in *.apk;do
+sign_app(){
+  for i in *.apk;do
    echo "正在签名 $i ...... "
    java -jar ~/yun/signapk.jar ~/yun/testkey.x509.pem ~/yun/testkey.pk8 $i sign_$i
    mv ./sign_$i ./$i
-   echo "完成签名 $i ";
-done
-cd ../
-if [ ! -d "/app-2" ]; then
-   echo "cd app-2"
-   cd app-2
-   for i in *.apk;do
-        echo "正在签名 $i ...... "
-        java -jar ~/yun/signapk.jar ~/yun/testkey.x509.pem ~/yun/testkey.pk8 $i sign_$i
-        mv ./sign_$i ./$i
-        echo "完成签名 $i ";
-   done
-fi
-cd ..
-if [ ! -d "/priv-app" ]; then
-   cd priv-app
-   for i in *.apk;do
-          echo "正在签名 $i ...... "
-          java -jar ~/yun/signapk.jar ~/yun/testkey.x509.pem ~/yun/testkey.pk8 $i sign_$i
-          mv ./sign_$i ./$i
-          echo "完成签名 $i ";
-          done
-fi
-cd ../../../
+   echo "完成签名 $";
+ done
+}
+cd $filepath/system/framework
+echo "cd framework"
+sign_app
+cd $filepath/system/app 
+echo "cd app"
+sign_app
+cd $filepath/system/app-2 2>/dev/null
+echo "cd app-2"
+sign_app
+cd $filepath/system/priv-app 2>/dev/null
+echo "cd priv-app"
+sign_app
+cd ~
+cd $filepath/framework
+echo "cd framework"
+sign_app
+cd $filepath/app 
+echo "cd app"
+sign_app
+cd $filepath/app-2 2>/dev/null
+echo "cd app-2"
+sign_app
+cd $filepath/priv-app 2>/dev/null
+echo "cd priv-app"
+sign_app
