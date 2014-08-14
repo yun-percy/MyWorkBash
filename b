@@ -22,4 +22,4 @@ mkdir $filepath/out 2>/dev/null
 	done
 	java -jar ~/yun/signapk.jar ~/yun/testkey.x509.pem ~/yun/testkey.pk8 $filepath/out/${project}_decode.apk $filepath/out/${project}.apk
 	rm -r $project/build
-	rm -r $project/orginal 2> dev/null
+	rm -r $project/orginal 2> /dev/null

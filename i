@@ -22,6 +22,9 @@ for (( i = 0; i < 100; i++ )); do
 		adb shell am start -n com.android.contacts/com.android.contacts.activities.PeopleActivity
 	elif [[ "$project" == "Dialer" ]]; then
 		adb shell am start -n com.android.dialer/com.android.dialer.DialtactsActivity
+	elif [[ "$project" == "QuickSearchBox" ]]; then
+		adb shell am start -n com.android.quicksearchbox/com.android.quicksearchbox.SearchActivity
+		#statements
 	fi
 
 	read -p "退出请输入：e:    " ex
