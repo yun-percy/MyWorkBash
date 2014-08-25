@@ -14,7 +14,6 @@ echo $filepath
 for (( i = 0; i < 100; i++ )); do
 	adb install -r $filepath/$project.apk
 	if [ "$project" == "launcher2" ]; then
-
 		adb shell am start -n com.cooee.unilauncher/com.iLoong.launcher.desktop.iLoongLauncher
 	elif [[ "$project" == "Settings" ]]; then
 		adb shell am start -n com.android.settings/com.android.settings.MainActivity
@@ -24,7 +23,8 @@ for (( i = 0; i < 100; i++ )); do
 		adb shell am start -n com.android.dialer/com.android.dialer.DialtactsActivity
 	elif [[ "$project" == "QuickSearchBox" ]]; then
 		adb shell am start -n com.android.quicksearchbox/com.android.quicksearchbox.SearchActivity
-		#statements
+	elif [[ "$project" == "Mms" ]]; then
+		adb shell am start -n com.android.mms/com.android.mms.ui.BootActivity
 	fi
 
 	read -p "退出请输入：e:    " ex
