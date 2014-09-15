@@ -8,3 +8,6 @@ PATH=/bin:/sbin:/usr/bin:usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
 adb reboot
+while [ $? = 1 ]; do
+	fastboot reboot
+done
