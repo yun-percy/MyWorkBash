@@ -25,6 +25,7 @@ for (( i = 0; i < 100; i++ )); do
 		adb shell am start -n com.android.quicksearchbox/com.android.quicksearchbox.SearchActivity
 	elif [[ "$project" == "Mms" ]]; then
 		adb shell am start -n com.android.mms/com.android.mms.ui.BootActivity
+		adb shell am start -n com.android.mms/.ui.ConversationList
 	fi
 
 	read -p "退出请输入：e:    " ex
