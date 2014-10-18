@@ -9,7 +9,11 @@ export PATH
 filepath=`pwd`
 project=$1
 echo $filepath
-adb push ${filepath}/${project}.apk sdcard/
+#remount
+# if [[ "$project" == "framework-res" ]]; then
+	adb push ${filepath}/${project}.apk sdcard/
+# fi
+# adb push ${filepath}/${project}.apk system/app
 while [ $? = 1 ]; do
 	adb push ${filepath}/${project}.apk sdcard/
 	#statements

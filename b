@@ -23,11 +23,11 @@ mkdir $filepath/out 2>/dev/null
 	# #statements
 	# done
 	java -jar ~/yun/signapk.jar ~/yun/testkey.x509.pem ~/yun/testkey.pk8 $filepath/out/${project}_decode.apk $filepath/out/${project}.apk
-	if [ ! -d "$project/foldername" ]; then
+	if [ ! -d "$project/build" ]; then
 	  echo "skip rm build...."
 	else rm -r $project/build 2> /dev/null
 	fi
-	if [ ! -d "$project/foldername" ]; then
+	if [ ! -d "$project/orginal" ]; then
 	  echo "skip rm orginal"
 	else rm -r $project/orginal 2> /dev/null
 	fi

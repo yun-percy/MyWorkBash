@@ -10,11 +10,19 @@ filepath=`pwd`
 project=$1
 echo $filepath
 filename=`echo $project | awk -F. '{print $1}'`
+
+if [ ! -d "${filepath}/${project}" ]; then
+
 rm -rf $filename 2>/dev/null
  ~/yun/apktool d ${filepath}/${project}
+else
+	# //project="${project}.zip"
+	read -p "以存在反编译文件夹，是否删除？(y/n)" y
+	if [[ "$y" == "y" ]]; then
+		rm -rf $filename 2>/dev/null
+	fi
+	~/yun/apktool d ${filepath}/${project}.apk
+fi
+#echo $filename
 
-echo $filename
-while [ $? = 1 ]; do
-	~/yun/apktool d $project.apk $filepath
-	#statements
-done
+
