@@ -14,7 +14,7 @@ apk=$1
 	aapt dump badging ${filepath}/$apk >> yun.xml
 	echo " " >>yun.xml
    echo "完成查看$i ";
-   subl yun.xml
+   gedit yun.xml
 read
 sed -i '/uses/d' yun.xml
 sed -i '/app/d' yun.xml
