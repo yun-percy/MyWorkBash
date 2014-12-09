@@ -10,12 +10,12 @@ export PATH
 filepath=`pwd`
 apk=$1
 
-	echo "正在查看 $1 ...... "
+	# echo "正在查看 $1 ...... "
 	aapt dump badging ${filepath}/$apk >> yun.xml
 	echo " " >>yun.xml
-   echo "完成查看$i ";
-   gedit yun.xml
-read
+   # echo "完成查看$i ";
+   # gedit yun.xml
+# read
 sed -i '/uses/d' yun.xml
 sed -i '/app/d' yun.xml
 sed -i '/sdk/d' yun.xml
@@ -30,5 +30,12 @@ sed -i '/search/d' yun.xml
 sed -i "s/'//g" yun.xml
 sed -i 's/versionCode.*//g'  yun.xml
 sed -i 's/label.*//g'  yun.xml
-subl yun.xml
+sed -i '/^$/d' yun.xml
+# cat yun.xml
+while read myline
+do
+	package=`echo $myline | awk -F = '{print $2}'`
+	echo "$package"
+done < yun.xml
 read
+rm yun.xml

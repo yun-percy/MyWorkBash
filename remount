@@ -8,4 +8,4 @@
 PATH=/bin:/sbin:/usr/bin:usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin:~/yun
 export PATH
 
-adb reboot recovery
+adb shell su -c "mount -o rw,remount -t ext4 /dev/block/platform/msm_sdcc.1/by-name/system "

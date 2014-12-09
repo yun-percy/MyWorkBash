@@ -7,5 +7,5 @@
 #写于2014年7月 深圳云雀公司
 PATH=/bin:/sbin:/usr/bin:usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin:~/yun
 export PATH
-
-adb reboot recovery
+cd `pwd`
+choosecombo release msm8916_32 eng QL1008_YUSUN_BL189 SYSTEM

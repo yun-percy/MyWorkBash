@@ -4,7 +4,7 @@
 #写于2014年3月 窝窝
 #写于2014年4月 深圳语信公司
 
-PATH=/bin:/sbin:/usr/bin:usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+PATH=/bin:/sbin:/usr/bin:usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin:~/yun
 export PATH
 
 adb reboot

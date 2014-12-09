@@ -1,0 +1,17 @@
+#!/bin/bash
+#此脚本用来 DIY ROM 用
+#制作者：陈云
+#写于2014年3月 窝窝
+
+PATH=/bin:/sbin:/usr/bin:usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
+
+project=$1
+DATE=`date "+%Y%m%d%H%M" `
+filepath=`pwd`
+echo "Signing.....$project"
+signapk(){
+	java -Xmx2048m -jar ~/yun/189key/signapk.jar -w ~/yun/189key/testkey.x509.pem ~/yun/189key/testkey.pk8  ${filepath}/${project}  ${filepath}/sign_${project}
+
+}
+signapk
