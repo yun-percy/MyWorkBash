@@ -133,10 +133,6 @@ logcatout(){
 logcaterror(){
 	adb logcat *:e
 }
-lunch(){
-	source build/envsetup.sh
-	choosecombo release msm8916_32 eng QL1008_YUSUN_BL189 SYSTEM
-}
 findout(){
 	find . -name "*.$1"  -exec grep -l "$2" {} \;
 	#查找根据文件内容查找匹配项　命令结构为　find　后缀名　匹配内容，如：find java void
@@ -179,7 +175,6 @@ kernelgraph\t#绘制内核模块依赖曲线图。需要可以查看图片。\n
 busy\t#在那些非技术人员的眼里你看起来是总是那么忙和神秘。\n
 logcatout\t#等价于adb logcat -s System.out\n
 logcaterror\t#等价于adb logcat *:e\n
-lunch\t#加载起高通msm8916的编译构架\n
 findout\t#查找根据文件内容查找匹配项　命令结构为　find　后缀名　匹配内容，如：find java void\n"
 }
 
