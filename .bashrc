@@ -6,7 +6,7 @@ alias ls="ls --color=auto"
 alias ll="ls --color -al"
 #以彩色的列表方式列出目录里面的全部文件。
 
-PS1="\033[01;32m\t\033[0m \033[01;33m\w\033[0m \033[01;34m$\033[0m"
+PS1='\[\e[32;1m\]\A \[\e[33;1m\]\w \[\e[34;1m\]$ \[\e[0m\]'
 #重定义提示符
 
 alias grep='grep --color=auto'
