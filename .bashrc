@@ -1,6 +1,6 @@
 #这些别名真的很简单并且真的很短，但他们大多数是为了给你的生命节省几秒钟，最终也许为你这一辈子节省出来几年，也许呢。
 
-alias ls="ls --color=auto"
+alias ls="ls --color=auto -F"
 #简单但非常重要。使ls命令带着彩色输出。
 
 alias ll="ls --color -al"
