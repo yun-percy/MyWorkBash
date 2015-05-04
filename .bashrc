@@ -1,6 +1,10 @@
 #这些别名真的很简单并且真的很短，但他们大多数是为了给你的生命节省几秒钟，最终也许为你这一辈子节省出来几年，也许呢。
 
-alias ls="ls --color=auto -F"
+#环境变量设置
+export PATH=$PATH:~/yun:~/yun/bootimg_tools_7.8.13:~/bin:./
+
+
+alias ls="ls --color=auto -F -h"
 #简单但非常重要。使ls命令带着彩色输出。
 
 alias ll="ls --color -al"
@@ -130,10 +134,10 @@ kernelgraph() { lsmod | perl -e 'print "digraph \"lsmod\" {";<>;while(<>){@_=spl
 alias busy="cat /dev/urandom | hexdump -C | grep 'ca fe'"
 #在那些非技术人员的眼里你看起来是总是那么忙和神秘。
 
-logcatout(){
+o:(){
 	adb logcat -s System.out
 }
-logcaterror(){
+e:(){
 	adb logcat *:e
 }
 findout(){
@@ -183,3 +187,66 @@ findout\t#查找根据文件内容查找匹配项　命令结构为　find　后
 
 
 
+makerec(){
+    make recoveryimage -j16
+}
+switchjava(){
+    sudo update-alternatives --config java
+    sudo update-alternatives --config javac
+}
+source /etc/bash_completion
+_fastboot()
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts="reboot boot flash devices -w reboot-bootloader"
+
+    case "$prev" in
+    reboot | devices | -w | reboot-bootloader)
+        COMPREPLY=()
+        return 0
+        ;;
+    flash)
+        COMPREPLY=( $(compgen -W "boot system recovery radio rpm sbl1 modem tz persist splash aboot" -- $cur ))
+        return 0
+        ;;
+    boot)
+        COMPREPLY=( $(compgen -o filenames -G "${cur}*.img"))
+        return 0
+        ;;
+    *)
+        local prev2="${COMP_WORDS[COMP_CWORD-2]}"
+        local prev3="${COMP_WORDS[COMP_CWORD-3]}"
+        if [ "$prev2" == "flash" ];then
+            COMPREPLY=( $(compgen -o filenames -G "${cur}*"))
+            return 0
+        elif [ "$prev2" == "boot" ];then
+            COMPREPLY=()
+            return 0
+        elif [ "$prev3" == "flash" ];then
+            COMPREPLY=()
+            return 0
+        fi
+        ;;
+    esac
+
+    COMPREPLY=( $(compgen -W "$opts" -- $cur) )
+    return 0
+}
+complete -F _fastboot fastboot
+#编辑bashrc快捷键
+bashrc(){
+    cd ~
+    vim ~/.bashrc
+    cd -
+}
+HISTCONTROL=ignoredups
+HISTCONTROL=erasedups
+shopt -s histappend
+PROMPT_COMMAND='history -a'
+shopt -s cdspell
+set completion-ignore-case on
+set visible-stats on
+export RUBYOPT="-U -Ku -E utf-8:utf-8"
