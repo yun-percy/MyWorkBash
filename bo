@@ -11,7 +11,7 @@ export PATH
 adb start-server
 TIMES=0
 result=$(adb reboot bootloader 2>&1)
-
+echo -e "\033[36mGo To bootloader| 即将重启到 bootloader\033[0m"
 status=`echo $result|awk -F : '{print $1}'`
 # if [[ "$status" == "error" ]]; then
 # 	echo -e "\033[33mwe will try in 3 seconds\033[0m"
