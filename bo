@@ -8,4 +8,21 @@
 PATH=/bin:/sbin:/usr/bin:usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin:~/yun
 export PATH
 
-adb reboot bootloader
+adb start-server
+TIMES=0
+result=$(adb reboot bootloader 2>&1)
+
+status=`echo $result|awk -F : '{print $1}'`
+# if [[ "$status" == "error" ]]; then
+# 	echo -e "\033[33mwe will try in 3 seconds\033[0m"
+# 	sleep 2
+# fi
+while [[ "$status" == "error" ]]; do
+	echo -e "\033[31m$result\033[0m"
+	echo -e "\033[33m$TIMES: we will try in 3 seconds....\033[0m"
+	sleep 2
+	((TIMES++))
+done
+# cat /tmp/adb.info
+# return=`adb reboot bootloader | awk '{print $1}'`
+# echo $return
