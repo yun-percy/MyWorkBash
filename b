@@ -1,7 +1,8 @@
 #!/bin/bash
-#此脚本用来 DIY ROM 用
-#制作者：陈云
-#写于2014年3月 窝窝
+#此脚本使用在Android 各项处理上
+#制作者：振云
+PATH=/bin:/sbin:/usr/bin:usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin:~/yun
+export PATH
 
 PATH=/bin:/sbin:/usr/bin:usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
