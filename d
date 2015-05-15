@@ -40,5 +40,6 @@ fi
 
 	~/yun/apktool d ${LOACAL_PATH}/${PROJECT}
 #echo $filename
+echo -e "\033[32mDone!\033[0m"
 
 

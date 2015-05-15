@@ -53,5 +53,5 @@ if [ ! -f "$PROJECT" ]; then
 fi
 
 $TOOLPATH/apktool if $LOACAL_PATH/$PROJECT
-echo -e "\033[32mDone\033[0m"
+echo -e "\033[32mDone!\033[0m"
 #echo $filename

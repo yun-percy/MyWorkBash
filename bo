@@ -17,4 +17,5 @@ while [[ "$status" == "error" ]]; do
 	result=$(adb reboot bootloader 2>&1)
 	status=`echo $result|awk -F : '{print $1}'`
 done
+echo -e "\033[32mDone!\033[0m"
 
