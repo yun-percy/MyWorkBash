@@ -250,3 +250,19 @@ shopt -s cdspell
 set completion-ignore-case on
 set visible-stats on
 export RUBYOPT="-U -Ku -E utf-8:utf-8"
+rename_suffix(){
+    read -p "请输入新的后缀名，例如：bak   ：" suffix
+    while [ -n "$1" ]
+    do
+        for i in $1
+        do
+            realname=`echo $i |sed 's/\(.*\)\..*$/\1/'`
+            mv $i ${realname}.$suffix
+        done
+    shift
+    done
+}
+download(){
+    filenames=`echo $1 | awk -F = '{print $2}'`
+    wget $1 -O  ~/packages/$filenames
+}
