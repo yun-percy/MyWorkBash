@@ -3,6 +3,7 @@
 #环境变量设置
 export PATH=$PATH:~/yun:~/yun/bootimg_tools_7.8.13:~/bin:./
 
+unset _JAVA_OPTIONS
 
 alias ls="ls --color=auto -F -h"
 #简单但非常重要。使ls命令带着彩色输出。
@@ -10,7 +11,7 @@ alias ls="ls --color=auto -F -h"
 alias ll="ls --color -al"
 #以彩色的列表方式列出目录里面的全部文件。
 
-PS1='\[\e[32;1m\]\A \[\e[33;1m\]\w \[\e[34;1m\]$ \[\e[0m\]'
+PS1='\[\e[32;1m\]\A \[\e[33;1m\]\w \[\e[36;1m\]$ \[\e[0m\]'
 #重定义提示符
 
 alias grep='grep --color=auto'
@@ -250,6 +251,7 @@ shopt -s cdspell
 set completion-ignore-case on
 set visible-stats on
 export RUBYOPT="-U -Ku -E utf-8:utf-8"
+alias subl="sublime_text_3_fcitx"
 rename_suffix(){
     read -p "请输入新的后缀名，例如：bak   ：" suffix
     while [ -n "$1" ]
