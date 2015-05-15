@@ -1,10 +1,6 @@
 #!/bin/bash
-#此脚本用来 DIY ROM 用
-#制作者：陈云
-#写于2014年3月 窝窝
-#写于2014年4月 深圳语信公司
-#写于2014年6月 深圳语信公司
-#写于2014年7月 深圳云雀公司
+#此脚本使用在Android 各项处理上
+#制作者：振云
 PATH=/bin:/sbin:/usr/bin:usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin:~/yun
 export PATH
 
@@ -13,16 +9,12 @@ TIMES=0
 result=$(adb reboot bootloader 2>&1)
 echo -e "\033[36mGo To bootloader| 即将重启到 bootloader\033[0m"
 status=`echo $result|awk -F : '{print $1}'`
-# if [[ "$status" == "error" ]]; then
-# 	echo -e "\033[33mwe will try in 3 seconds\033[0m"
-# 	sleep 2
-# fi
 while [[ "$status" == "error" ]]; do
 	echo -e "\033[31m$result\033[0m"
 	echo -e "\033[33m$TIMES: we will try in 3 seconds....\033[0m"
 	sleep 2
 	((TIMES++))
+	result=$(adb reboot bootloader 2>&1)
+	status=`echo $result|awk -F : '{print $1}'`
 done
-# cat /tmp/adb.info
-# return=`adb reboot bootloader | awk '{print $1}'`
-# echo $return
+

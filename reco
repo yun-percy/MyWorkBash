@@ -8,4 +8,17 @@
 PATH=/bin:/sbin:/usr/bin:usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin:~/yun
 export PATH
 
-adb reboot recovery
+adb start-server
+TIMES=0
+result=$(adb reboot recovery 2>&1)
+echo -e "\033[36mGo To recovery| 即将重启到 recovery\033[0m"
+status=`echo $result|awk -F : '{print $1}'`
+while [[ "$status" == "error" ]]; do
+	echo -e "\033[31m$result\033[0m"
+	echo -e "\033[33m$TIMES: we will try in 3 seconds....\033[0m"
+	sleep 2
+	((TIMES++))
+	result=$(adb reboot recovery 2>&1)
+	status=`echo $result|awk -F : '{print $1}'`
+done
+
