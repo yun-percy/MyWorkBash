@@ -268,3 +268,12 @@ download(){
     filenames=`echo $1 | awk -F = '{print $2}'`
     wget $1 -O  ~/packages/$filenames
 }
+repo_sync(){
+    repo sync
+    while [ $? == 1 ]
+    do
+       echo -e "\033[31m repo failed,restart.....\033[0m"
+        repo sync
+    done
+    echo -e "\033[32mDone!\033[0m"
+}
