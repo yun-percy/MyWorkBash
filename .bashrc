@@ -1,7 +1,7 @@
 #这些别名真的很简单并且真的很短，但他们大多数是为了给你的生命节省几秒钟，最终也许为你这一辈子节省出来几年，也许呢。
 
 #环境变量设置
-export PATH=$PATH:~/yun:~/yun/bootimg_tools_7.8.13:~/bin:./
+export PATH=$PATH:~/yun:~/yun/tools:~/bin:./
 
 unset _JAVA_OPTIONS
 
