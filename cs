@@ -41,7 +41,7 @@ case "$result2" in
 			echo -ne "\033[31m NOT Connected \033[0m"
 			echo -n " Trying again --> "
 			echo -e "\033[33m$TRYING_TIMES\033[0m"
-			sleep 1
+			sleep 2
 			((TRYING_TIMES++))
 			check_android_status
 		fi
